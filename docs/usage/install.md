@@ -1,17 +1,17 @@
-# <code>baseline <b>install</b></code>
+# <code>cfRNA-seek <b>install</b></code>
 
 ???+ note
 
     This pipeline does not have any reference files that need to be downloaded
     by default. As so, everything on this page can be safely ignored! We
     have bundled all the reference files for the pipeline within our Github
-    repository. All the reference files are located within the [resources folder](https://github.com/OpenOmics/baseline/tree/main/resources).
+    repository. All the reference files are located within the [resources folder](https://github.com/OpenOmics/cfRNA-seek/tree/main/resources).
 
 
 ## 1. About 
-The `baseline` executable is composed of several inter-related sub commands. Please see `baseline -h` for all available options.
+The `cfRNA-seek` executable is composed of several inter-related sub commands. Please see `cfRNA-seek -h` for all available options.
 
-This part of the documentation describes options and concepts for <code>baseline <b>install</b></code> sub command in more detail.
+This part of the documentation describes options and concepts for <code>cfRNA-seek <b>install</b></code> sub command in more detail.
 
 With minimal configuration, the **`install`** sub command enables you to download the pipeline's resource bundle locally. This is necessary when setting up the pipeline on a new target system or cluster. 
 
@@ -21,18 +21,18 @@ Since most resource bundles are very large; we recommend using multiple threads 
 
 **Please Note:** The resource bundle requires about `XX GB` of available disk space. If you are running the pipeline on the Biowulf cluster, you do *NOT* need to download the pipeline's resource bundle. It is already accessible to all HPC users. This sub command is for users running the pipeline outside of the Biowulf cluster.
 
-Downloading the resource bundle is fast and easy! In its most basic form, <code>baseline <b>install</b></code> only has *one required input*.
+Downloading the resource bundle is fast and easy! In its most basic form, <code>cfRNA-seek <b>install</b></code> only has *one required input*.
 
 ## 2. Synopsis
 ```text
-$ baseline install [--help] [--dry-run] \
+$ cfRNA-seek install [--help] [--dry-run] \
      [--force] [--threads] \
      --ref-path REF_PATH
 ```
 
 The synopsis for each command shows its parameters and their usage. Optional parameters are shown in square brackets.
 
-A user **must** provide a output directory for the reference file download  via the `--ref-path` argument. Once the download of the resource bundle  has completed, a new child directory called baseline will be created. This new directory will contain all of the pipeline's required reference files. The path to this new directory can be passed to the `--resource-bundle` option of the <code>baseline <b>run</b></code> subcomand. This allow users outside of Biowulf to run the pipeline.
+A user **must** provide a output directory for the reference file download  via the `--ref-path` argument. Once the download of the resource bundle  has completed, a new child directory called cfRNA-seek will be created. This new directory will contain all of the pipeline's required reference files. The path to this new directory can be passed to the `--resource-bundle` option of the <code>cfRNA-seek <b>run</b></code> subcomand. This allow users outside of Biowulf to run the pipeline.
 
 Use you can always use the `-h` option for information on a specific command.
 
@@ -43,7 +43,7 @@ Use you can always use the `-h` option for information on a specific command.
 > **Path where the resource bundle will be downloaded.**  
 > *type: path*
 > 
-> Any resouces defined in the 'config/install.json' will be pulled onto the local filesystem. After the files have been downloaded, a new directory with the name `baseline` will be created. It contains all the required reference files of the pipeline. The path to this new directory can be passed to the run sub command's `--resource-bundle` option. Please see the run sub command for more information.
+> Any resouces defined in the 'config/install.json' will be pulled onto the local filesystem. After the files have been downloaded, a new directory with the name `cfRNA-seek` will be created. It contains all the required reference files of the pipeline. The path to this new directory can be passed to the run sub command's `--resource-bundle` option. Please see the run sub command for more information.
 > 
 > ***Example:*** `--ref-path /data/$USER/refs`
 
@@ -99,8 +99,8 @@ module load singularity snakemake
 # Step 1.) Dry-run the install
 # sub-command to see what would
 # be downloaded
-baseline install \
-    --ref-path /data/$USER/references/baseline \
+cfRNA-seek install \
+    --ref-path /data/$USER/references/cfRNA-seek \
     --threads 12 \
     --dry-run 
 
@@ -110,11 +110,11 @@ baseline install \
 # submitting this next command to the cluster
 # as a job. Download speeds will vary so it 
 # is best to set the wall time to 2 days.
-baseline install \
-  --ref-path /data/$USER/references/baseline \
+cfRNA-seek install \
+  --ref-path /data/$USER/references/cfRNA-seek \
   --threads 12
 
 # Checkout the downloaded files
-cd /data/$USER/references/baseline
+cd /data/$USER/references/cfRNA-seek
 tree .
 ```

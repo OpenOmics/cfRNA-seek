@@ -1,32 +1,32 @@
 <div align="center">
    
-  <h1>baseline 🔬</h1>
+  <h1>cfRNA-seek 🔬</h1>
   
-  **_{{ pipeline_long_name }}_**
+  **_cell-Free RNA-sequencing pipeline_**
 
-  [![tests](https://github.com/OpenOmics/baseline/workflows/tests/badge.svg)](https://github.com/OpenOmics/baseline/actions/workflows/main.yaml) [![docs](https://github.com/OpenOmics/baseline/workflows/docs/badge.svg)](https://github.com/OpenOmics/baseline/actions/workflows/docs.yml) [![GitHub issues](https://img.shields.io/github/issues/OpenOmics/baseline?color=brightgreen)](https://github.com/OpenOmics/baseline/issues)  [![GitHub license](https://img.shields.io/github/license/OpenOmics/baseline)](https://github.com/OpenOmics/baseline/blob/main/LICENSE) 
+  [![tests](https://github.com/OpenOmics/cfRNA-seek/workflows/tests/badge.svg)](https://github.com/OpenOmics/cfRNA-seek/actions/workflows/main.yaml) [![docs](https://github.com/OpenOmics/cfRNA-seek/workflows/docs/badge.svg)](https://github.com/OpenOmics/cfRNA-seek/actions/workflows/docs.yml) [![GitHub issues](https://img.shields.io/github/issues/OpenOmics/cfRNA-seek?color=brightgreen)](https://github.com/OpenOmics/cfRNA-seek/issues)  [![GitHub license](https://img.shields.io/github/license/OpenOmics/cfRNA-seek)](https://github.com/OpenOmics/cfRNA-seek/blob/main/LICENSE) 
   
   <i>
-    This is the home of the pipeline, baseline. Its long-term goals: {{ pipeline_mission_statement }}!
+    This is the home of the pipeline, cfRNA-seek. Its long-term goals: simplify cell-free RNA-seq processing, quantify gene expression, and provide comprehensive quality assessments to support downstream analyses!
   </i>
 </div>
 
 ## Overview
 
-Welcome to baseline! Before getting started, we highly recommend reading through [baseline's documentation](https://openomics.github.io/baseline/).
+Welcome to cfRNA-seek! Before getting started, we highly recommend reading through [cfRNA-seek's documentation](https://openomics.github.io/cfRNA-seek/).
 
-The **`./baseline`** pipeline is composed several inter-related sub commands to setup and run the pipeline across different systems. Each of the available sub commands perform different functions: 
+The **`./cfRNA-seek`** pipeline is composed several inter-related sub commands to setup and run the pipeline across different systems. Each of the available sub commands perform different functions: 
 
- * [<code>baseline <b>run</b></code>](https://openomics.github.io/baseline/usage/run/): Run the baseline pipeline with your input files.
- * [<code>baseline <b>unlock</b></code>](https://openomics.github.io/baseline/usage/unlock/): Unlocks a previous runs output directory.
- * [<code>baseline <b>install</b></code>](https://openomics.github.io/baseline/usage/install/): Download reference files locally.
- * [<code>baseline <b>cache</b></code>](https://openomics.github.io/baseline/usage/cache/): Cache software containers locally.
+ * [<code>cfRNA-seek <b>run</b></code>](https://openomics.github.io/cfRNA-seek/usage/run/): Run the cfRNA-seek pipeline with your input files.
+ * [<code>cfRNA-seek <b>unlock</b></code>](https://openomics.github.io/cfRNA-seek/usage/unlock/): Unlocks a previous runs output directory.
+ * [<code>cfRNA-seek <b>install</b></code>](https://openomics.github.io/cfRNA-seek/usage/install/): Download reference files locally.
+ * [<code>cfRNA-seek <b>cache</b></code>](https://openomics.github.io/cfRNA-seek/usage/cache/): Cache software containers locally.
 
-**baseline** is a comprehensive {{ pipeline_long_description }}. It relies on technologies like [Singularity<sup>1</sup>](https://singularity.lbl.gov/) to maintain the highest-level of reproducibility. The pipeline consists of a series of data processing and quality-control steps orchestrated by [Snakemake<sup>2</sup>](https://snakemake.readthedocs.io/en/stable/), a flexible and scalable workflow management system, to submit jobs to a cluster.
+**cfRNA-seek** is a comprehensive cell-free RNA sequencing (cfRNA-seq) pipeline designed to streamline the analysis of paired-end sequencing data, from raw reads to gene expression quantification. It accommodates different library preparation strategies, including those using unique molecular identifiers (UMIs), and integrates read preprocessing, alignment, duplicate removal, and gene-level counting. Consolidated quality reports assess sequencing performance, library characteristics, and potential biases across samples and study groups, providing a foundation for downstream analysis and biological discovery. It relies on technologies like [Singularity<sup>1</sup>](https://singularity.lbl.gov/) to maintain the highest-level of reproducibility. The pipeline consists of a series of data processing and quality-control steps orchestrated by [Snakemake<sup>2</sup>](https://snakemake.readthedocs.io/en/stable/), a flexible and scalable workflow management system, to submit jobs to a cluster.
 
-As input, it accepts a set of FastQ files and can be run locally on a compute instance or on-premise using a cluster. A user can define the method or mode of execution. The pipeline can submit jobs to a cluster using a job scheduler like SLURM (more coming soon!). A hybrid approach ensures the pipeline is accessible to all users. Before getting started, we highly recommend reading through the [usage](https://openomics.github.io/baseline/usage/run/) section of each available sub command.
+As input, it accepts a set of FastQ files and can be run locally on a compute instance or on-premise using a cluster. A user can define the method or mode of execution. The pipeline can submit jobs to a cluster using a job scheduler like SLURM (more coming soon!). A hybrid approach ensures the pipeline is accessible to all users. Before getting started, we highly recommend reading through the [usage](https://openomics.github.io/cfRNA-seek/usage/run/) section of each available sub command.
 
-For more information about issues or trouble-shooting a problem, please checkout our [FAQ](https://openomics.github.io/baseline/faq/questions/) prior to [opening an issue on Github](https://github.com/OpenOmics/baseline/issues).
+For more information about issues or trouble-shooting a problem, please checkout our [FAQ](https://openomics.github.io/cfRNA-seek/faq/questions/) prior to [opening an issue on Github](https://github.com/OpenOmics/cfRNA-seek/issues).
 
 ## Dependencies
 
@@ -39,19 +39,19 @@ At the current moment, the pipeline uses a mixture of enviroment modules and doc
 Please clone this repository to your local filesystem using the following command:
 ```bash
 # Clone Repository from Github
-git clone https://github.com/OpenOmics/baseline.git
+git clone https://github.com/OpenOmics/cfRNA-seek.git
 # Change your working directory
-cd baseline/
+cd cfRNA-seek/
 # Add dependencies to $PATH
 # Biowulf users should run
 module load snakemake singularity
 # Get usage information
-./baseline -h
+./cfRNA-seek -h
 ```
 
 ## Contribute
 
-This site is a living document, created for and by members like you. baseline is maintained by the members of [OpenOmics](https://openomics.github.io) and is improved by continous feedback! We encourage you to contribute new content and make improvements to existing content via pull request to our [GitHub repository](https://github.com/OpenOmics/baseline).
+This site is a living document, created for and by members like you. cfRNA-seek is maintained by the members of [OpenOmics](https://openomics.github.io) and is improved by continous feedback! We encourage you to contribute new content and make improvements to existing content via pull request to our [GitHub repository](https://github.com/OpenOmics/cfRNA-seek).
 
 
 ## Cite
@@ -75,34 +75,6 @@ Citation coming soon!
 ```
 
 </details>
-
-<!---
-# Setup from baseline template
-```bash
-# Add your new pipeline name here,
-# whatever you set here will be the
-# name of your cli too. Please make 
-# sure it does not contain any spaces
-# It should only contain, alpha-numeric
-# characters and hyphens. 
-new_pipeline_name="add_your_pipeline_name_here"
-
-# Dry-run: This step automagically builds a 
-# command to update any instances of the string
-# baseline with your new pipeline name, please
-# make sure to set the variable above to whatever
-# you want to name the pipeline and CLI.
-find . -type f -not -path '*/.baseline_version' -not -path '*./CHANGELOG.md' -not -path '*/.git/*' -exec grep 'baseline' {} /dev/null \; | awk -F ':' '{print $1}' | sort | uniq | sed "s/^/sed -i 's@baseline@$new_pipeline_name@g' /g"
-
-# Updates any instances of the string baseline
-# with the name you decided/set above.
-find . -type f -not -path '*/.baseline_version' -not -path '*./CHANGELOG.md' -not -path '*/.git/*' -exec grep 'baseline' {} /dev/null \; | awk -F ':' '{print $1}' | sort | uniq | sed "s/^/sed -i 's@baseline@$new_pipeline_name@g' /g" | bash
-
-# Rename the cli or main entry point 
-# of the pipeline
-mv baseline "$new_pipeline_name"
-```
--->
 
 ## References
 

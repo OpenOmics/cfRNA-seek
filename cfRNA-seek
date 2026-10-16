@@ -25,9 +25,9 @@ merchantability or fitness for any particular purpose.
 Please cite the author and NIH resources like the "Biowulf Cluster"
 in any work or product based on this material.
 USAGE:
-  $ baseline <command> [OPTIONS]
+  $ cfRNA-seek <command> [OPTIONS]
 EXAMPLE:
-  $ baseline run --input *.fastq.gz --output output/
+  $ cfRNA-seek run --input *.fastq.gz --output output/
 """
 
 # Python standard library
@@ -74,7 +74,7 @@ __authors__ = 'Skyler Kuhn'
 __email__ = 'skyler.kuhn@nih.gov'
 __home__  =  os.path.dirname(os.path.abspath(__file__))
 _name = os.path.basename(sys.argv[0])
-_description = '{{ pipeline_long_name }}'
+_description = 'cell-Free RNA-sequencing pipeline'
 
 
 def unlock(sub_args):

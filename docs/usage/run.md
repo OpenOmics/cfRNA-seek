@@ -1,16 +1,16 @@
-# <code>baseline <b>run</b></code>
+# <code>cfRNA-seek <b>run</b></code>
 
 ## 1. About 
-The `baseline` executable is composed of several inter-related sub commands. Please see `baseline -h` for all available options.
+The `cfRNA-seek` executable is composed of several inter-related sub commands. Please see `cfRNA-seek -h` for all available options.
 
-This part of the documentation describes options and concepts for <code>baseline <b>run</b></code> sub command in more detail. With minimal configuration, the **`run`** sub command enables you to start running baseline pipeline. 
+This part of the documentation describes options and concepts for <code>cfRNA-seek <b>run</b></code> sub command in more detail. With minimal configuration, the **`run`** sub command enables you to start running cfRNA-seek pipeline. 
 
-Setting up the baseline pipeline is fast and easy! In its most basic form, <code>baseline <b>run</b></code> only has *two required inputs*.
+Setting up the cfRNA-seek pipeline is fast and easy! In its most basic form, <code>cfRNA-seek <b>run</b></code> only has *two required inputs*.
 
 ## 2. Synopsis
 
 ```text
-$ baseline run [--help] \
+$ cfRNA-seek run [--help] \
       [--dry-run] [--job-name JOB_NAME] [--mode {{slurm,local}}] \
       [--sif-cache SIF_CACHE] [--singularity-cache SINGULARITY_CACHE]  \ 
       [--silent] [--threads THREADS] [--tmp-dir TMP_DIR] \
@@ -82,7 +82,7 @@ Each of the following arguments are optional, and do not need to be provided.
 > Execution Method. Defines the mode or method of execution. Vaild mode options include: slurm or local. 
 > 
 > ***slurm***    
-> The slurm execution method will submit jobs to the [SLURM workload manager](https://slurm.schedmd.com/). It is recommended running baseline in this mode as execution will be significantly faster in a distributed environment. This is the default mode of execution.
+> The slurm execution method will submit jobs to the [SLURM workload manager](https://slurm.schedmd.com/). It is recommended running cfRNA-seek in this mode as execution will be significantly faster in a distributed environment. This is the default mode of execution.
 >
 > ***local***  
 > Local executions will run serially on compute instance. This is useful for testing, debugging, or when a users does not have access to a high performance computing environment. If this option is not provided, it will default to a slurm execution mode. 
@@ -93,9 +93,9 @@ Each of the following arguments are optional, and do not need to be provided.
   `--job-name JOB_NAME`  
 > **Set the name of the pipeline's master job.**  
 > *type: string*  
-> *default: pipeline_baseline*
+> *default: pipeline_cfRNA-seek*
 > 
-> When submitting the pipeline to a job scheduler, like SLURM, this option always you to set the name of the pipeline's master job. By default, the name of the pipeline's master job is set to `pipeline_baseline`.
+> When submitting the pipeline to a job scheduler, like SLURM, this option always you to set the name of the pipeline's master job. By default, the name of the pipeline's master job is set to `pipeline_cfRNA-seek`.
 > 
 > ***Example:*** `--job-name pl_id-42`
 
@@ -114,7 +114,7 @@ Each of the following arguments are optional, and do not need to be provided.
 > **Path where a local cache of SIFs are stored.**  
 > *type: path*  
 >
-> Uses a local cache of SIFs on the filesystem. This SIF cache can be shared across users if permissions are set correctly. If a SIF does not exist in the SIF cache, the image will be pulled from Dockerhub and a warning message will be displayed. The `baseline cache` subcommand can be used to create a local SIF cache. Please see `baseline cache` for more information. This command is extremely useful for avoiding DockerHub pull rate limits. It also remove any potential errors that could occur due to network issues or DockerHub being temporarily unavailable. We recommend running baseline with this option when ever possible.
+> Uses a local cache of SIFs on the filesystem. This SIF cache can be shared across users if permissions are set correctly. If a SIF does not exist in the SIF cache, the image will be pulled from Dockerhub and a warning message will be displayed. The `cfRNA-seek cache` subcommand can be used to create a local SIF cache. Please see `cfRNA-seek cache` for more information. This command is extremely useful for avoiding DockerHub pull rate limits. It also remove any potential errors that could occur due to network issues or DockerHub being temporarily unavailable. We recommend running cfRNA-seek with this option when ever possible.
 > 
 > ***Example:*** `--sif-cache /data/OpenOmics/SIFs`
 
@@ -170,17 +170,17 @@ module purge
 module load singularity snakemake
 
 # Step 2A.) Dry-run the pipeline
-./baseline run --input .tests/*.fastq.gz \
+./cfRNA-seek run --input .tests/*.fastq.gz \
     --sif-cache /data/OpenOmics/SIFs \
     --output /data/$USER/output \
     --mode slurm \
     --dry-run
 
-# Step 2B.) Run the baseline pipeline
+# Step 2B.) Run the cfRNA-seek pipeline
 # The slurm mode will submit jobs to 
 # the cluster. It is recommended running 
 # the pipeline in this mode.
-./baseline run --input .tests/*.fastq.gz \
+./cfRNA-seek run --input .tests/*.fastq.gz \
     --sif-cache /data/OpenOmics/SIFs \
     --output /data/$USER/output \
     --mode slurm

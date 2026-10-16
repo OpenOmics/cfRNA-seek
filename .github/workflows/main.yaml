@@ -16,7 +16,7 @@ jobs:
     - name: Dryrun workflow with test data
       run: |
         docker run -v $PWD:/opt2 snakemake/snakemake:v5.24.2 \
-        bash -c '/opt2/baseline run \
+        bash -c '/opt2/cfRNA-seek run \
         --input /opt2/.tests/*.fastq.gz \
         --output /opt2/output \
         --mode local \
